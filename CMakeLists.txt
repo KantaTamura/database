@@ -3,4 +3,4 @@ project(database C)
 
 set(CMAKE_C_STANDARD 99)
 
-add_executable(database main.c)
+add_executable(database main.c DataBase/database.c DataBase/database.h)
