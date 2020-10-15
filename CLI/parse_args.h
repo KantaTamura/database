@@ -7,9 +7,8 @@
 typedef struct Cli {
     Action action;
     Args args;
-    sds path;
-    int data_i32;
-    sds data_sds;
 } Cli;
+
+void show_data(Action action, Args args);
 
 #endif //PARSE_ARGS_H
