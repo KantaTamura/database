@@ -2,9 +2,10 @@
 #define ARGS_H
 
 typedef enum Action {
-    Show,
-    File,
-    Add,
+    Show = 0,
+    File = 1,
+    Add  = 2,
+    NullAction,
 } Action;
 
 typedef enum Args {
@@ -17,6 +18,7 @@ typedef enum Args {
     Age,
     Birth,
     Score,
+    NullArgs,
 } Args;
 
 #endif //ARGS_H

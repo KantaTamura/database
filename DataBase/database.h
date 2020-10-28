@@ -31,7 +31,6 @@ typedef struct School {
     char address[32];
 } School;
 
-void
 void Person_add(Person person);
 
 #endif //DATABASE_H
