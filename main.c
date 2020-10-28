@@ -48,39 +48,48 @@ int main(int argc, char* argv[]) {
 void processing(Cli *cli) {
     switch (cli -> args) {
         case Name:
-            fprintf(stdout, "Name...\n");
+            // 名前について処理する
+            fprintf(stdout, "personal name...\n");
             name_processing[cli -> action](cli);
             break;
         case sNumber:
-            fprintf(stdout, "sNumber...\n");
+            // 学籍番号について処理する
+            fprintf(stdout, "student number...\n");
             sNumber_processing[cli -> action](cli);
             break;
         case aNumber:
-            fprintf(stdout, "aNumber...\n");
+            // 出席番号について処理する
+            fprintf(stdout, "attendance number...\n");
             aNumber_processing[cli -> action](cli);
             break;
         case Address:
-            fprintf(stdout, "Address...\n");
+            // 住所について処理する
+            fprintf(stdout, "street address...\n");
             address_processing[cli -> action](cli);
             break;
         case Gender:
-            fprintf(stdout, "Gender...\n");
+            // 性別について処理する
+            fprintf(stdout, "gender...\n");
             gender_processing[cli -> action](cli);
             break;
         case Class:
-            fprintf(stdout, "Class...\n");
+            // クラスについて処理する
+            fprintf(stdout, "class...\n");
             class_processing[cli -> action](cli);
             break;
         case Age:
-            fprintf(stdout, "Age...\n");
+            // 年齢について処理する
+            fprintf(stdout, "age...\n");
             age_processing[cli -> action](cli);
             break;
         case Birth:
-            fprintf(stdout, "Birth...\n");
+            // 生年月日について処理する
+            fprintf(stdout, "birthday...\n");
             birth_processing[cli -> action](cli);
             break;
         case Score:
-            fprintf(stdout, "Score...\n");
+            // テスト結果について処理する
+            fprintf(stdout, "test results...\n");
             score_processing[cli -> action](cli);
             break;
         case NullArgs:
