@@ -1,5 +1,5 @@
-#ifndef DATABASE_H
-#define DATABASE_H
+#ifndef DATABASE_FUNC_H
+#define DATABASE_FUNC_H
 
 #include "personData.h"
 
@@ -24,4 +24,4 @@ void person_get_age    (Person *person[], int *age);
 void person_get_birth  (Person *person[], PersonBirth *birth);
 void person_get_score  (Person *person[]);
 
-#endif //DATABASE_H
+#endif //DATABASE_FUNC_H

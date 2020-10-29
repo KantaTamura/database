@@ -1,6 +1,5 @@
 #include <stdio.h>
 #include "action_func.h"
-#include "../DataBase/database.h"
 
 void show_name(Cli *cli) {
     char *name[32];

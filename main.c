@@ -3,6 +3,7 @@
 #include "CLI/parse_args.h"
 #include "CLI/action_func.h"
 #include "CLI/action_func_support.h"
+#include "DataBaseFunc/database.h"
 
 void processing(Cli *cli);
 
@@ -17,6 +18,9 @@ int main(int argc, char* argv[]) {
     // コマンドライン引数格納
     Cli cli = initCli();
     parse_all_arguments(&cli, argc, argv);
+
+    // 現在保存されている人の数
+    long personNum;  import_config(&personNum);
 
     // 動作分岐
     switch (cli.action) {

@@ -1,4 +1,4 @@
-#include "database.h"
+#include "database_func.h"
 
 void person_get_name(Person *person[], char *name[32]) {
 
