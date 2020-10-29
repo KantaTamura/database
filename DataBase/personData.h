@@ -1,16 +1,16 @@
 #ifndef PERSON_DATA_H
 #define PERSON_DATA_H
 
-typedef enum Gender {
+typedef enum PersonGender {
     Male,
     Female,
-} Gender;
+} PersonGender;
 
-typedef struct Birth {
+typedef struct PersonBirth {
     int year;
     int month;
     int day;
-} Birth;
+} PersonBirth;
 
 
 #endif //PERSON_DATA_H
