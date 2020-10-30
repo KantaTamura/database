@@ -45,5 +45,10 @@ void parse_csv(Person person[]) {
         exit(-1);
     }
 
+    char buf[7][64];
+    fscanf(csv, "%[^,],&[^,],%[^,],&[^,],%[^,],&[^,],%s", buf[0], buf[1], buf[2], buf[3], buf[4], buf[5], buf[6]);
 
+
+
+    fclose(csv);
 }
