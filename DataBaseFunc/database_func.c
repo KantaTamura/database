@@ -12,7 +12,7 @@ void person_get_aNumber(Person *person[], int *aNumber) {
 
 }
 
-void person_get_address(Person *person[], char *address[32]) {
+void person_get_address(Person *person[], char *address[64]) {
 
 }
 
@@ -28,10 +28,6 @@ void person_get_age(Person *person[], int *age) {
 
 }
 
-void person_get_birth(Person *person[], PersonBirth *birth) {
-
-}
-
-void person_get_score(Person *person[]) {
+void person_get_birth(Person *person[], char *birth[32]) {
 
 }

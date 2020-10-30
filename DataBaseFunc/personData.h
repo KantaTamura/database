@@ -6,6 +6,7 @@ typedef enum PersonGender {
     Female,
 } PersonGender;
 
+//! DEAD CODE
 typedef struct PersonBirth {
     int year;
     int month;

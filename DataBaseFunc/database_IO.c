@@ -8,7 +8,7 @@ void import_config(long *personNum) {
     FILE *config;
 
     if ( (config = fopen("../Database/database.cfg", "r")) == NULL ) {
-        fprintf(stderr, "Error: Couldn't open the file.\n");
+        fprintf(stderr, "Error: Couldn't open the file...%s...\n", "database.cfg");
         exit(-1);
     }
 
@@ -32,5 +32,18 @@ void import_config(long *personNum) {
         exit(-1);
     }
 
+    fclose(config);
+
     *personNum = num;
+}
+
+void parse_csv(Person person[]) {
+    FILE *csv;
+
+    if ( (csv = fopen("../Database/database.csv", "r")) == NULL ) {
+        fprintf(stderr, "Error: Couldn't open the file...%s...\n", "database.csv");
+        exit(-1);
+    }
+
+
 }

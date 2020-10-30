@@ -35,7 +35,3 @@ void show_age(Cli *cli) {
 void show_birth(Cli *cli) {
 
 }
-
-void show_score(Cli *cli) {
-
-}

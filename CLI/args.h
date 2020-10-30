@@ -9,15 +9,14 @@ typedef enum Action {
 } Action;
 
 typedef enum Args {
-    Name,
-    sNumber,
-    aNumber,
-    Address,
-    Gender,
-    Class,
-    Age,
-    Birth,
-    Score,
+    Name    = 0,
+    sNumber = 1,
+    aNumber = 2,
+    Address = 3,
+    Gender  = 4,
+    Class   = 5,
+    Age     = 6,
+    Birth   = 7,
     NullArgs,
 } Args;
 

@@ -47,9 +47,3 @@ void (* const birth_processing[])(Cli *cli) = {
         file_birth,
         add_birth,
 };
-
-void (* const score_processing[])(Cli *cli) = {
-        show_score,
-        file_score,
-        add_score,
-};

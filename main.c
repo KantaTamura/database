@@ -22,6 +22,11 @@ int main(int argc, char* argv[]) {
     // 現在保存されている人の数
     long personNum;  import_config(&personNum);
 
+    // personNum人分のデータを用意
+    Person person[personNum];
+
+    // database.csvからデータを読み取る
+
     // 動作分岐
     switch (cli.action) {
         case Show:
@@ -90,11 +95,6 @@ void processing(Cli *cli) {
             // 生年月日について処理する
             fprintf(stdout, "birthday...\n");
             birth_processing[cli -> action](cli);
-            break;
-        case Score:
-            // テスト結果について処理する
-            fprintf(stdout, "test results...\n");
-            score_processing[cli -> action](cli);
             break;
         case NullArgs:
             // 第2コマンドライン引数に不明な文字列が入った場合

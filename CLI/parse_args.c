@@ -82,9 +82,6 @@ Args parse_args_arguments(int argc, char* argv[]) {
                 case 7:
                     args = Birth;
                     break;
-                case 8:
-                    args = Score;
-                    break;
                 default:
                     //! DEAD CODE
                     break;

@@ -31,7 +31,3 @@ void file_age(Cli *cli) {
 void file_birth(Cli *cli) {
 
 }
-
-void file_score(Cli *cli) {
-
-}

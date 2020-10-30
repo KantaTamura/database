@@ -31,7 +31,3 @@ void add_age(Cli *cli) {
 void add_birth(Cli *cli) {
 
 }
-
-void add_score(Cli *cli) {
-
-}
