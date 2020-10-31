@@ -13,6 +13,8 @@ void import_config(long *personNum) {
         exit(-1);
     }
 
+    fprintf(stdout, "Importing a config file...");
+
     char buf[32], *end_pointer;
     long num;
 
@@ -32,6 +34,8 @@ void import_config(long *personNum) {
                 num == LONG_MAX ? "Overflow" : "Underflow");
         exit(-1);
     }
+
+    fprintf(stdout, "Done\n");
 
     fclose(config);
 
@@ -73,6 +77,8 @@ void parse_csv(Person person[], long personNum) {
         exit(-1);
     }
 
+    fprintf(stdout, "Importing a CSV file...");
+
     char buf[8][64];
 
     for (long i = 0; i < personNum; i++) {
@@ -89,10 +95,7 @@ void parse_csv(Person person[], long personNum) {
         strcpy(person[i].birth, buf[7]);
     }
 
-    for (long i = 0; i < personNum; i++) {
-        fprintf(stdout, "%s, %s, %ld, %s, %s, %s, %ld, %s\n",
-                person[i].name, person[i].sNumber, person[i].aNumber, person[i].address, person[i].gender, person[i].class, person[i].age, person[i].birth);
-    }
+    fprintf(stdout, "Done\n");
 
     fclose(csv);
 }
