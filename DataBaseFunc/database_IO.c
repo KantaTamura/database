@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 #include <errno.h>
 #include <limits.h>
 #include "database_IO.h"
@@ -49,6 +50,21 @@ void read_line(FILE *csv, char buf[8][64]) {
     }
 }
 
+void string_to_long(long *num, char *str) {
+    char *end_pointer;
+
+    *num = strtol(str, &end_pointer, 10);
+    if (*end_pointer != '\0') {
+        fprintf(stderr, "Error: Invalid character found: %c\n", *end_pointer);
+        exit(-1);
+    }
+    if (errno == ERANGE) {
+        fprintf(stderr, "Error: Out of range (%s)\n",
+                *num == LONG_MAX ? "Overflow" : "Underflow");
+        exit(-1);
+    }
+}
+
 void parse_csv(Person person[], long personNum) {
     FILE *csv;
 
@@ -62,9 +78,20 @@ void parse_csv(Person person[], long personNum) {
     for (long i = 0; i < personNum; i++) {
         read_line(csv, buf);
         fscanf(csv, "%*c");
-        fprintf(stdout,
-                "%s, %s, %s, %s, %s, %s, %s, %s\n",
-                buf[0], buf[1], buf[2], buf[3], buf[4], buf[5], buf[6], buf[7]);
+
+        strcpy(person[i].name, buf[0]);
+        strcpy(person[i].sNumber, buf[1]);
+        string_to_long(&person[i].aNumber, buf[2]);
+        strcpy(person[i].address, buf[3]);
+        strcpy(person[i].gender, buf[4]);
+        strcpy(person[i].class, buf[5]);
+        string_to_long(&person[i].age, buf[6]);
+        strcpy(person[i].birth, buf[7]);
+    }
+
+    for (long i = 0; i < personNum; i++) {
+        fprintf(stdout, "%s, %s, %ld, %s, %s, %s, %ld, %s\n",
+                person[i].name, person[i].sNumber, person[i].aNumber, person[i].address, person[i].gender, person[i].class, person[i].age, person[i].birth);
     }
 
     fclose(csv);

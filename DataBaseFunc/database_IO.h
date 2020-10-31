@@ -5,6 +5,7 @@
 
 void import_config(long *personNum);
 void read_line(FILE *csv, char buf[8][64]);
+void string_to_long(long *num, char *str);
 void parse_csv(Person person[], long personNum);
 
 #endif //DATABASE_IO_H
