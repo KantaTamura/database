@@ -4,6 +4,8 @@
 #include "parse_args.h"
 #include "../DataBaseFunc/database_func.h"
 
+FILE *file_method();
+
 // show (pseudo) class
 void show_name   (Cli *cli, Person *person);
 void show_sNumber(Cli *cli, Person *person);
