@@ -4,6 +4,7 @@
 #include "database_func.h"
 
 void import_config(long *personNum);
-void parse_csv(Person person[]);
+void read_line(FILE *csv, char buf[8][64]);
+void parse_csv(Person person[], long personNum);
 
 #endif //DATABASE_IO_H

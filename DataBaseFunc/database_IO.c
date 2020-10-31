@@ -15,7 +15,7 @@ void import_config(long *personNum) {
     char buf[32], *end_pointer;
     long num;
 
-    if (fscanf(config, "%31[^\n]%*[^\n]", buf) != 1) {
+    if (fscanf(config, "%31[^\n]%*[^\n]", buf) == EOF) {
         fprintf(stderr, "Error: No input specified.\n");
         exit(-1);
     }
@@ -37,7 +37,19 @@ void import_config(long *personNum) {
     *personNum = num;
 }
 
-void parse_csv(Person person[]) {
+void read_line(FILE *csv, char buf[8][64]) {
+    if (
+            fscanf(csv,
+                   "%63[^,],%63[^,],%63[^,],%63[^,],%63[^,],%63[^,],%63[^,],%63[^\n]",
+                   buf[0], buf[1], buf[2], buf[3], buf[4], buf[5], buf[6], buf[7])
+            == EOF
+    ) {
+        fprintf(stderr, "Error: No input specified.\n");
+        exit(-1);
+    }
+}
+
+void parse_csv(Person person[], long personNum) {
     FILE *csv;
 
     if ( (csv = fopen("../Database/database.csv", "r")) == NULL ) {
@@ -45,10 +57,15 @@ void parse_csv(Person person[]) {
         exit(-1);
     }
 
-    char buf[7][64];
-    fscanf(csv, "%[^,],&[^,],%[^,],&[^,],%[^,],&[^,],%s", buf[0], buf[1], buf[2], buf[3], buf[4], buf[5], buf[6]);
+    char buf[8][64];
 
-
+    for (long i = 0; i < personNum; i++) {
+        read_line(csv, buf);
+        fscanf(csv, "%*c");
+        fprintf(stdout,
+                "%s, %s, %s, %s, %s, %s, %s, %s\n",
+                buf[0], buf[1], buf[2], buf[3], buf[4], buf[5], buf[6], buf[7]);
+    }
 
     fclose(csv);
 }

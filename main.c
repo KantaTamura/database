@@ -26,6 +26,7 @@ int main(int argc, char* argv[]) {
     Person person[personNum];
 
     // database.csvからデータを読み取る
+    parse_csv(person, personNum);
 
     // 動作分岐
     switch (cli.action) {
