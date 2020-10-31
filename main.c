@@ -10,8 +10,7 @@ void processing(Cli *cli, Person *person);
 int main(int argc, char* argv[]) {
     // コマンドライン引数が存在しないか、5個以上ある場合
     if (argc == 1 || argc >= 5) {
-        fprintf(stderr, "Incorrect command line arguments.\n"
-                         "For proper command line arguments, use help.\n");
+        fprintf(stderr, "Error: コマンドライン引数が正しくありません.\n");
         return -1;
     }
 
@@ -33,23 +32,22 @@ int main(int argc, char* argv[]) {
     switch (cli.action) {
         case Show:
             // 指定された要素を出力する
-            fprintf(stdout, "Outputs the specified element...");
+            fprintf(stdout, "指定された要素を出力します...");
             processing(&cli, person);
             break;
         case File:
             // 指定された要素をファイルとして出力する
-            fprintf(stdout, "Outputs the specified element to a file...");
+            fprintf(stdout, "指定された要素をファイルに出力します...");
             processing(&cli, person);
             break;
         case Add:
             // dataの値をcsvに追加する
-            fprintf(stdout, "Add the specified element...\n");
+            fprintf(stdout, "指定された要素を追加します...\n");
             add_csv(&cli);
             break;
         case NullAction:
             // 第1コマンドライン引数に不明な文字列が入った場合
-            fprintf(stderr, "The first command line variable is incorrect, please enter the correct command.\n"
-                             "For proper command line arguments, use help.\n");
+            fprintf(stderr, "Error: 最初のコマンドライン変数が正しくありません。正しいコマンドを入力してください.\n");
             return -1;
     }
     return 0;
@@ -59,54 +57,53 @@ void processing(Cli *cli, Person *person) {
     switch (cli -> args) {
         case Name:
             // 名前について処理する
-            fprintf(stdout, "personal name...\n");
+            fprintf(stdout, "個人名...\n");
             name_processing[cli -> action](cli, person);
             break;
         case sNumber:
             // 学籍番号について処理する
-            fprintf(stdout, "student number...\n");
+            fprintf(stdout, "学籍番号...\n");
             sNumber_processing[cli -> action](cli, person);
             break;
         case aNumber:
             // 出席番号について処理する
-            fprintf(stdout, "attendance number...\n");
+            fprintf(stdout, "出席番号...\n");
             aNumber_processing[cli -> action](cli, person);
             break;
         case Address:
             // 住所について処理する
-            fprintf(stdout, "street address...\n");
+            fprintf(stdout, "住所...\n");
             address_processing[cli -> action](cli, person);
             break;
         case Gender:
             // 性別について処理する
-            fprintf(stdout, "gender...\n");
+            fprintf(stdout, "性別...\n");
             gender_processing[cli -> action](cli, person);
             break;
         case Class:
             // クラスについて処理する
-            fprintf(stdout, "class...\n");
+            fprintf(stdout, "クラス...\n");
             class_processing[cli -> action](cli, person);
             break;
         case Age:
             // 年齢について処理する
-            fprintf(stdout, "age...\n");
+            fprintf(stdout, "年齢...\n");
             age_processing[cli -> action](cli, person);
             break;
         case Birth:
             // 生年月日について処理する
-            fprintf(stdout, "birthday...\n");
+            fprintf(stdout, "誕生日...\n");
             birth_processing[cli -> action](cli, person);
             break;
         case All:
             // すべて処理する
-            fprintf(stdout, "all...\n");
+            fprintf(stdout, "全て...\n");
             all_processing[cli -> action](cli, person);
             break;
         case NullArgs:
             // 第2コマンドライン引数に不明な文字列が入った場合
-            fprintf(stdout, "ERROR...\n");
-            fprintf(stderr, "The second command line variable is incorrect, please enter the correct command.\n"
-                             "For proper command line arguments, use help.\n");
+            fprintf(stdout, "エラー...\n");
+            fprintf(stderr, "Error: 2番目のコマンドライン変数が正しくありません。正しいコマンドを入力してください.\n");
             exit(-1);
     }
 }

@@ -10,7 +10,7 @@ void show_name(Cli *cli, Person *person) {
         fprintf(stdout, "%s\n", name[i]);
     }
 
-    fprintf(stdout, "...Done\n");
+    fprintf(stdout, "...完了\n");
 }
 
 void show_sNumber(Cli *cli, Person *person) {
@@ -22,7 +22,7 @@ void show_sNumber(Cli *cli, Person *person) {
         fprintf(stdout, "%s\n", sNumber[i]);
     }
 
-    fprintf(stdout, "...Done\n");
+    fprintf(stdout, "...完了\n");
 }
 
 void show_aNumber(Cli *cli, Person *person) {
@@ -34,7 +34,7 @@ void show_aNumber(Cli *cli, Person *person) {
         fprintf(stdout, "%ld\n", aNumber[i]);
     }
 
-    fprintf(stdout, "...Done\n");
+    fprintf(stdout, "...完了\n");
 }
 
 void show_address(Cli *cli, Person *person) {
@@ -46,7 +46,7 @@ void show_address(Cli *cli, Person *person) {
         fprintf(stdout, "%s\n", address[i]);
     }
 
-    fprintf(stdout, "...Done\n");
+    fprintf(stdout, "...完了\n");
 }
 
 void show_gender(Cli *cli, Person *person) {
@@ -58,7 +58,7 @@ void show_gender(Cli *cli, Person *person) {
         fprintf(stdout, "%s\n", gender[i]);
     }
 
-    fprintf(stdout, "...Done\n");
+    fprintf(stdout, "...完了\n");
 }
 
 void show_class(Cli *cli, Person *person) {
@@ -70,7 +70,7 @@ void show_class(Cli *cli, Person *person) {
         fprintf(stdout, "%s\n", class[i]);
     }
 
-    fprintf(stdout, "...Done\n");
+    fprintf(stdout, "...完了\n");
 }
 
 void show_age(Cli *cli, Person *person) {
@@ -82,7 +82,7 @@ void show_age(Cli *cli, Person *person) {
         fprintf(stdout, "%ld\n", age[i]);
     }
 
-    fprintf(stdout, "...Done\n");
+    fprintf(stdout, "...完了\n");
 }
 
 void show_birth(Cli *cli, Person *person) {
@@ -94,7 +94,7 @@ void show_birth(Cli *cli, Person *person) {
         fprintf(stdout, "%s\n", birth[i]);
     }
 
-    fprintf(stdout, "...Done\n");
+    fprintf(stdout, "...完了\n");
 }
 
 void show_all(Cli *cli, Person *person) {
@@ -121,5 +121,5 @@ void show_all(Cli *cli, Person *person) {
                 name[i], sNumber[i], aNumber[i], address[i], gender[i], class[i], age[i], birth[i]);
     }
 
-    fprintf(stdout, "...Done\n");
+    fprintf(stdout, "...完了\n");
 }

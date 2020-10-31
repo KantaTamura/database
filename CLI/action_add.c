@@ -7,7 +7,7 @@ FILE *update_csv_file() {
     FILE *csv;
 
     if ( (csv = fopen("../Database/database.csv", "a")) == NULL ) {
-        fprintf(stderr, "Error: Couldn't open the file...%s...\n", "database.csv");
+        fprintf(stderr, "Error: ファイルを開くことができませんでした...%s...\n", "database.csv");
         exit(-1);
     }
 
@@ -18,7 +18,7 @@ FILE *update_config_file() {
     FILE *config;
 
     if ( (config = fopen("../Database/database.cfg", "w")) == NULL ) {
-        fprintf(stderr, "Error: Couldn't open the file...%s...\n", "database.cfg");
+        fprintf(stderr, "Error: ファイルを開くことができませんでした...%s...\n", "database.cfg");
         exit(-1);
     }
 
@@ -27,7 +27,7 @@ FILE *update_config_file() {
 
 void add_csv(Cli *cli) {
     if (cli -> args != All) {
-        fprintf(stderr, "In the case of Add, please specify All as the second argument\n");
+        fprintf(stderr, "Error: Addの場合、2番目の引数としてAllを指定してください.\n");
         exit(-1);
     }
 
@@ -38,7 +38,7 @@ void add_csv(Cli *cli) {
 
     for (int i = 0; i < 8; i++) {
         if ( strcmp(_buf[i], "\0") == 0 ) {
-            fprintf(stderr, "Error: Incorrect input format.\n");
+            fprintf(stderr, "Error: 入力形式が正しくありません.\n");
             exit(-1);
         }
     }
@@ -51,5 +51,5 @@ void add_csv(Cli *cli) {
     fprintf(config, "%ld", cli -> personNum + 1);
     fclose(config);
 
-    fprintf(stdout, "...Done\n");
+    fprintf(stdout, "...完了\n");
 }

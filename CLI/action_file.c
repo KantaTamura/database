@@ -6,7 +6,7 @@ FILE *make_output_file() {
     FILE *output;
 
     if ( (output = fopen("../Database/output.csv", "w")) == NULL ) {
-        fprintf(stderr, "Error: Couldn't open the file...%s...\n", "output.csv");
+        fprintf(stderr, "Error: ファイルを開くことができませんでした...%s...\n", "output.csv");
         exit(-1);
     }
 
@@ -24,7 +24,7 @@ void file_name(Cli *cli, Person *person) {
         fprintf(output, "%s\n", name[i]);
     }
 
-    fprintf(stdout, "...Done\n");
+    fprintf(stdout, "...完了\n");
 
     fclose(output);
 }
@@ -40,7 +40,7 @@ void file_sNumber(Cli *cli, Person *person) {
         fprintf(output, "%s\n", sNumber[i]);
     }
 
-    fprintf(stdout, "...Done\n");
+    fprintf(stdout, "...完了\n");
 
     fclose(output);
 }
@@ -56,7 +56,7 @@ void file_aNumber(Cli *cli, Person *person) {
         fprintf(output, "%ld\n", aNumber[i]);
     }
 
-    fprintf(stdout, "...Done\n");
+    fprintf(stdout, "...完了\n");
 
     fclose(output);
 }
@@ -72,7 +72,7 @@ void file_address(Cli *cli, Person *person) {
         fprintf(output, "%s\n", address[i]);
     }
 
-    fprintf(stdout, "...Done\n");
+    fprintf(stdout, "...完了\n");
 
     fclose(output);
 }
@@ -88,7 +88,7 @@ void file_gender(Cli *cli, Person *person) {
         fprintf(output, "%s\n", gender[i]);
     }
 
-    fprintf(stdout, "...Done\n");
+    fprintf(stdout, "...完了\n");
 
     fclose(output);
 }
@@ -104,7 +104,7 @@ void file_class(Cli *cli, Person *person) {
         fprintf(output, "%s\n", class[i]);
     }
 
-    fprintf(stdout, "...Done\n");
+    fprintf(stdout, "...完了\n");
 
     fclose(output);
 }
@@ -120,7 +120,7 @@ void file_age(Cli *cli, Person *person) {
         fprintf(output, "%ld\n", age[i]);
     }
 
-    fprintf(stdout, "...Done\n");
+    fprintf(stdout, "...完了\n");
 
     fclose(output);
 }
@@ -136,7 +136,7 @@ void file_birth(Cli *cli, Person *person) {
         fprintf(output, "%s\n", birth[i]);
     }
 
-    fprintf(stdout, "...Done\n");
+    fprintf(stdout, "...完了\n");
 
     fclose(output);
 }
@@ -167,7 +167,7 @@ void file_all(Cli *cli, Person *person) {
                 name[i], sNumber[i], aNumber[i], address[i], gender[i], class[i], age[i], birth[i]);
     }
 
-    fprintf(stdout, "...Done\n");
+    fprintf(stdout, "...完了\n");
 
     fclose(output);
 }

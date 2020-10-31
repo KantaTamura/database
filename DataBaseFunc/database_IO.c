@@ -9,24 +9,24 @@ void import_config(long *personNum) {
     FILE *config;
 
     if ( (config = fopen("../Database/database.cfg", "r")) == NULL ) {
-        fprintf(stderr, "Error: Couldn't open the file...%s...\n", "database.cfg");
+        fprintf(stderr, "Error: ファイルを開くことができませんでした...%s...\n", "database.cfg");
         exit(-1);
     }
 
-    fprintf(stdout, "Importing a config file...");
+    fprintf(stdout, "設定ファイルをインポートしています...");
 
     char buf[32], *end_pointer;
     long num;
 
     if (fscanf(config, "%31[^\n]%*[^\n]", buf) == EOF) {
-        fprintf(stderr, "Error: No input specified.\n");
+        fprintf(stderr, "Error: 入力が指定されていません.\n");
         exit(-1);
     }
     fscanf(config, "%*c");
 
     num = strtol(buf, &end_pointer, 10);
     if (*end_pointer != '\0') {
-        fprintf(stderr, "Error: Invalid character found: %c\n", *end_pointer);
+        fprintf(stderr, "Error: 無効な文字が見つかりました: %c\n", *end_pointer);
         exit(-1);
     }
     if (errno == ERANGE) {
@@ -35,7 +35,7 @@ void import_config(long *personNum) {
         exit(-1);
     }
 
-    fprintf(stdout, "Done\n");
+    fprintf(stdout, "完了\n");
 
     fclose(config);
 
@@ -49,7 +49,7 @@ void read_line(FILE *csv, char buf[8][64]) {
                    buf[0], buf[1], buf[2], buf[3], buf[4], buf[5], buf[6], buf[7])
             == EOF
     ) {
-        fprintf(stderr, "Error: No input specified.\n");
+        fprintf(stderr, "Error: 入力が指定されていません.\n");
         exit(-1);
     }
 }
@@ -59,7 +59,7 @@ void string_to_long(long *num, char *str) {
 
     *num = strtol(str, &end_pointer, 10);
     if (*end_pointer != '\0') {
-        fprintf(stderr, "Error: Invalid character found: %c\n", *end_pointer);
+        fprintf(stderr, "Error: 無効な文字が見つかりました: %c\n", *end_pointer);
         exit(-1);
     }
     if (errno == ERANGE) {
@@ -73,11 +73,11 @@ void parse_csv(Person person[], long personNum) {
     FILE *csv;
 
     if ( (csv = fopen("../Database/database.csv", "r")) == NULL ) {
-        fprintf(stderr, "Error: Couldn't open the file...%s...\n", "database.csv");
+        fprintf(stderr, "Error: ファイルを開くことができませんでした...%s...\n", "database.csv");
         exit(-1);
     }
 
-    fprintf(stdout, "Importing a CSV file...");
+    fprintf(stdout, "CSVファイルをインポートしています...");
 
     char buf[8][64];
 
@@ -95,7 +95,7 @@ void parse_csv(Person person[], long personNum) {
         strcpy(person[i].birth, buf[7]);
     }
 
-    fprintf(stdout, "Done\n");
+    fprintf(stdout, "完了\n");
 
     fclose(csv);
 }
