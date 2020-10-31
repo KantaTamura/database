@@ -5,7 +5,7 @@
 #include "CLI/action_func_support.h"
 #include "DataBaseFunc/database.h"
 
-void processing(Cli *cli);
+void processing(Cli *cli, Person *person);
 
 int main(int argc, char* argv[]) {
     // コマンドライン引数が存在しないか、5個以上ある場合
@@ -21,29 +21,30 @@ int main(int argc, char* argv[]) {
 
     // 現在保存されている人の数
     long personNum;  import_config(&personNum);
+    cli.personNum = personNum;
 
     // personNum人分のデータを用意
-    Person person[personNum];
+    Person person[cli.personNum];
 
     // database.csvからデータを読み取る
-    parse_csv(person, personNum);
+    parse_csv(person, cli.personNum);
 
     // 動作分岐
     switch (cli.action) {
         case Show:
             // 指定された要素を出力する
             fprintf(stdout, "Outputs the specified element...");
-            processing(&cli);
+            processing(&cli, person);
             break;
         case File:
             // 指定された要素をファイルとして出力する
             fprintf(stdout, "Outputs the specified element to a file...");
-            processing(&cli);
+            processing(&cli, person);
             break;
         case Add:
             // 指定された要素にdataの値を追加する
             fprintf(stdout, "Add the specified element...");
-            processing(&cli);
+            processing(&cli, person);
             break;
         case NullAction:
             // 第1コマンドライン引数に不明な文字列が入った場合
@@ -55,47 +56,52 @@ int main(int argc, char* argv[]) {
     return 0;
 }
 
-void processing(Cli *cli) {
+void processing(Cli *cli, Person *person) {
     switch (cli -> args) {
         case Name:
             // 名前について処理する
             fprintf(stdout, "personal name...\n");
-            name_processing[cli -> action](cli);
+            name_processing[cli -> action](cli, person);
             break;
         case sNumber:
             // 学籍番号について処理する
             fprintf(stdout, "student number...\n");
-            sNumber_processing[cli -> action](cli);
+            sNumber_processing[cli -> action](cli, person);
             break;
         case aNumber:
             // 出席番号について処理する
             fprintf(stdout, "attendance number...\n");
-            aNumber_processing[cli -> action](cli);
+            aNumber_processing[cli -> action](cli, person);
             break;
         case Address:
             // 住所について処理する
             fprintf(stdout, "street address...\n");
-            address_processing[cli -> action](cli);
+            address_processing[cli -> action](cli, person);
             break;
         case Gender:
             // 性別について処理する
             fprintf(stdout, "gender...\n");
-            gender_processing[cli -> action](cli);
+            gender_processing[cli -> action](cli, person);
             break;
         case Class:
             // クラスについて処理する
             fprintf(stdout, "class...\n");
-            class_processing[cli -> action](cli);
+            class_processing[cli -> action](cli, person);
             break;
         case Age:
             // 年齢について処理する
             fprintf(stdout, "age...\n");
-            age_processing[cli -> action](cli);
+            age_processing[cli -> action](cli, person);
             break;
         case Birth:
             // 生年月日について処理する
             fprintf(stdout, "birthday...\n");
-            birth_processing[cli -> action](cli);
+            birth_processing[cli -> action](cli, person);
+            break;
+        case All:
+            // すべて処理する
+            fprintf(stdout, "all...\n");
+            all_processing[cli -> action](cli, person);
             break;
         case NullArgs:
             // 第2コマンドライン引数に不明な文字列が入った場合

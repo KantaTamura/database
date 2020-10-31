@@ -53,7 +53,7 @@ Args parse_args_arguments(int argc, char* argv[]) {
     if (argc <= 2) return args;
 
     char *cmp = argv[2];
-    char *argsData[9] = {"Name", "sNumber", "aNumber", "Address", "Gender", "Class", "Age", "Birth", "Score"};
+    char *argsData[9] = {"Name", "sNumber", "aNumber", "Address", "Gender", "Class", "Age", "Birth", "All"};
 
     for (int i = 0; i < 9; i++) {
         if ( strcmp(cmp, argsData[i]) == 0 ) {
@@ -81,6 +81,9 @@ Args parse_args_arguments(int argc, char* argv[]) {
                     break;
                 case 7:
                     args = Birth;
+                    break;
+                case 8:
+                    args = All;
                     break;
                 default:
                     //! DEAD CODE

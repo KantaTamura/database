@@ -17,6 +17,7 @@ typedef enum Args {
     Class   = 5,
     Age     = 6,
     Birth   = 7,
+    All     = 8,
     NullArgs,
 } Args;
 

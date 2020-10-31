@@ -7,6 +7,7 @@ typedef struct Cli {
     Action action;
     Args args;
     char *data;
+    long personNum;
 } Cli;
 
 Cli initCli();
