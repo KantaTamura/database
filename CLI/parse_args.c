@@ -6,7 +6,7 @@ Cli initCli() {
 
     cli.action = NullAction;
     cli.args   = NullArgs;
-    cli.data   = "\0";
+    strcpy(cli.data, "\0");
 
     return cli;
 }
@@ -14,7 +14,7 @@ Cli initCli() {
 void parse_all_arguments(Cli *cli, int argc, char *argv[]) {
     cli -> action = parse_action_arguments(argc, argv);
     cli -> args   = parse_args_arguments  (argc, argv);
-    cli -> data   = parse_data_arguments  (argc, argv);
+    parse_data_arguments  (argc, argv, cli -> data);
 }
 
 Action parse_action_arguments(int argc, char *argv[]) {
@@ -95,12 +95,10 @@ Args parse_args_arguments(int argc, char* argv[]) {
     return args;
 }
 
-char *parse_data_arguments(int argc, char *argv[]) {
-    char *data = "\0";
+void parse_data_arguments(int argc, char *argv[], char data[256]) {
+    strcpy(data, "\0");
 
-    if (argc <= 3) return data;
+    if (argc <= 3) return;
 
-    data = argv[3];
-
-    return data;
+    strcpy(data, argv[3]);
 }

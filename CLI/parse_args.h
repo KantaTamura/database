@@ -6,7 +6,7 @@
 typedef struct Cli {
     Action action;
     Args args;
-    char *data;
+    char data[256];
     long personNum;
 } Cli;
 
@@ -15,6 +15,6 @@ void parse_all_arguments(Cli *cli, int argc, char *argv[]);
 
 Action parse_action_arguments(int argc, char *argv[]);
 Args   parse_args_arguments  (int argc, char *argv[]);
-char   *parse_data_arguments (int argc, char *argv[]);
+void   parse_data_arguments  (int argc, char *argv[], char data[256]);
 
 #endif //PARSE_ARGS_H

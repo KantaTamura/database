@@ -42,9 +42,9 @@ int main(int argc, char* argv[]) {
             processing(&cli, person);
             break;
         case Add:
-            // 指定された要素にdataの値を追加する
-            fprintf(stdout, "Add the specified element...");
-            processing(&cli, person);
+            // dataの値をcsvに追加する
+            fprintf(stdout, "Add the specified element...\n");
+            add_csv(&cli);
             break;
         case NullAction:
             // 第1コマンドライン引数に不明な文字列が入った場合
@@ -52,7 +52,6 @@ int main(int argc, char* argv[]) {
                              "For proper command line arguments, use help.\n");
             return -1;
     }
-
     return 0;
 }
 

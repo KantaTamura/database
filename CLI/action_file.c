@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include "action_func.h"
 
-FILE *file_method() {
+FILE *make_output_file() {
     FILE *output;
 
     if ( (output = fopen("../Database/output.csv", "w")) == NULL ) {
@@ -18,7 +18,7 @@ void file_name(Cli *cli, Person *person) {
 
     person_get_name(cli, person, name);
 
-    FILE *output = file_method();
+    FILE *output = make_output_file();
 
     for (int i = 0; i < cli -> personNum; i++) {
         fprintf(output, "%s\n", name[i]);
@@ -34,7 +34,7 @@ void file_sNumber(Cli *cli, Person *person) {
 
     person_get_sNumber(cli, person, sNumber);
 
-    FILE *output = file_method();
+    FILE *output = make_output_file();
 
     for (int i = 0; i < cli -> personNum; i++) {
         fprintf(output, "%s\n", sNumber[i]);
@@ -50,7 +50,7 @@ void file_aNumber(Cli *cli, Person *person) {
 
     person_get_aNumber(cli, person, aNumber);
 
-    FILE *output = file_method();
+    FILE *output = make_output_file();
 
     for (int i = 0; i < cli -> personNum; i++) {
         fprintf(output, "%ld\n", aNumber[i]);
@@ -66,7 +66,7 @@ void file_address(Cli *cli, Person *person) {
 
     person_get_address(cli, person, address);
 
-    FILE *output = file_method();
+    FILE *output = make_output_file();
 
     for (int i = 0; i < cli -> personNum; i++) {
         fprintf(output, "%s\n", address[i]);
@@ -82,7 +82,7 @@ void file_gender(Cli *cli, Person *person) {
 
     person_get_gender(cli, person, gender);
 
-    FILE *output = file_method();
+    FILE *output = make_output_file();
 
     for (int i = 0; i < cli -> personNum; i++) {
         fprintf(output, "%s\n", gender[i]);
@@ -98,7 +98,7 @@ void file_class(Cli *cli, Person *person) {
 
     person_get_class(cli, person, class);
 
-    FILE *output = file_method();
+    FILE *output = make_output_file();
 
     for (int i = 0; i < cli -> personNum; i++) {
         fprintf(output, "%s\n", class[i]);
@@ -114,7 +114,7 @@ void file_age(Cli *cli, Person *person) {
 
     person_get_age(cli, person, age);
 
-    FILE *output = file_method();
+    FILE *output = make_output_file();
 
     for (int i = 0; i < cli -> personNum; i++) {
         fprintf(output, "%ld\n", age[i]);
@@ -130,7 +130,7 @@ void file_birth(Cli *cli, Person *person) {
 
     person_get_birth(cli, person, birth);
 
-    FILE *output = file_method();
+    FILE *output = make_output_file();
 
     for (int i = 0; i < cli -> personNum; i++) {
         fprintf(output, "%s\n", birth[i]);
@@ -160,7 +160,7 @@ void file_all(Cli *cli, Person *person) {
     person_get_age    (cli, person, age);
     person_get_birth  (cli, person, birth);
 
-    FILE *output = file_method();
+    FILE *output = make_output_file();
 
     for (int i = 0; i < cli -> personNum; i++) {
         fprintf(output, "%s,%s,%ld,%s,%s,%s,%ld,%s\n",
